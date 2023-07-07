@@ -15,8 +15,14 @@ struct UserListView: View {
         NavigationStack {
             List(vm.users) { user in
                 HStack {
-                    Text(user.firstName)
-                    Text(user.lastName)
+                    NavigationLink {
+                        UserEditView(user: user) { returnedUser in
+                            vm.update(user: returnedUser)
+                        }
+                    } label: {
+                        Text(user.firstName)
+                        Text(user.lastName)
+                    }
                 }
             }
             .navigationTitle("Users")
@@ -25,6 +31,11 @@ struct UserListView: View {
                     showSheet.toggle()
                 } label: {
                     Text("Add")
+                }
+            }
+            .sheet(isPresented: $showSheet) {
+                UserEditView(user: User()) { returnedUser in
+                    vm.add(user: returnedUser)
                 }
             }
         }
