@@ -13,7 +13,7 @@ class UserListVM: ObservableObject {
         User(firstName: "Tony", lastName: "Stark")
     ]
     
-    // CRUD
+    // CRUD - Create Read Update and Delete fucntions
     
     func add(user: User) {
         users.append(user)
