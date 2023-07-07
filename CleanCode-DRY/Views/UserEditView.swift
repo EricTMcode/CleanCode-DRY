@@ -27,9 +27,9 @@ struct UserEditView: View {
     }
 }
 
-//struct UserEditView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserEditView(user: User(firstName: "Eric", lastName: "TM"), save: (User) -> ())
-//    }
-//}
+struct UserEditView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserEditView(user: User(firstName: "Eric", lastName: "TM"), save: { _ in })
+    }
+}
 
